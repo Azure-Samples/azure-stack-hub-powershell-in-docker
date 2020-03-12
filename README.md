@@ -1,57 +1,41 @@
-# Project Name
+# Azure Stack Hub PowerShell
 
-(short, 1-3 sentenced, description of the project)
+This repository contains a Dockerfile and script to get you up and running with [Azure Stack Hub](https://docs.microsoft.com/en-us/azure-stack) compatible PowerShell isolated in a Docker container.
 
-## Features
+PowerShell provides a programmatic way to interact with the Azure Resource  Manager. You can either work with an interactive command prompt or write scripts if you are automatic tasks.
 
-This project framework provides the following features:
+If you spend much time working with Azure Stack Hub PowerShell, you probably find yourself installing and reinstalling the modules over and over gain. This can be particularly annoying if you are working with global Azure at the same time since you will need to uninstall and reinstall your modules depending on your target.
 
-* Feature 1
-* Feature 2
-* ...
+This repo contains a Dockerfile that will install the Azure Stack Hub module the commonly used GitHub tools in the [Azure Stack Hub Tools](https://github.com/Azure/AzureStack-Tools).
 
-## Getting Started
+## Prerequisites
 
-### Prerequisites
+- You will need to have [Docker](https://docs.docker.com/install/) installed if you would like to use the Docker File.
+- You will need to run Docker using Windows containers which will require Windows 10. When running Docker, switch to Windows containers.
+- You will also want to have access to Azure Stack Hub. Azure Stack Hub is a version of Azure that can run on-premises within a local datacenter. You can read more about [Azure Stack Hub at Microsoft.com](https://azure.microsoft.com/overview/azure-stack/). 
 
-(ideally very short, if any)
+## Use the Dockerfile
 
-- OS
-- Library version
-- ...
+The Dockerfile opens the Microsoft image [microsoft/windowsservercore](https://hub.docker.com/_/microsoft-windows-servercore) which has Windows PowerShell 5.1 installed. The file then loads Nuget, the Azure Stack Hub PowerShell modules, and grabs the tools from Azure Stack Hub Tools.
 
-### Installation
+1. Download this Repo as a ZIP or clone the repo.
+2. Open the repo folder from your terminal.
+3. Type: 
+    ```
+    docker build --tag azure-stack-powershell .
+    ```
+4. When the image has been built, you can start an interactive container. Type:
+    ```
+    docker run -it azure-stack-powershell powershell
+    ```
+5. The shell is ready for your cmdlets.
+    ```
+    Windows PowerShell
+    Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 
-(ideally very short)
+    PS C:\>
+    ```
 
-- npm install [package name]
-- mvn install
-- ...
+## Next steps
 
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
-
-
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
-
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+You read more using PowerShell on Azure Stack Hub in the article, "[Install PowerShell for Azure Stack Hub](https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-powershell-install)."
