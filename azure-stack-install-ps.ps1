@@ -11,5 +11,5 @@ Install-Module -Name AzureRM.BootStrapper -Force
 
 Get-AzureRMProfile -Update
 Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.8.0
+Install-Module -Name AzureStack -RequiredVersion 1.8.1
 Install-Module -Name Azs.Tools.Admin
