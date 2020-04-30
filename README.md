@@ -1,3 +1,11 @@
+---
+page_type: sample
+languages:
+- powershell
+products:
+- azure-stack-hub
+---
+
 # Azure Stack Hub PowerShell
 
 This repository contains a Dockerfile and script to get you up and running with [Azure Stack Hub](https://docs.microsoft.com/en-us/azure-stack) compatible PowerShell isolated in a Docker container.
